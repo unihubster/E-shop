@@ -54,6 +54,7 @@
   background: #FFF;
   padding: 7px;
   display: none;
+  text-align: justify;
 }
 
 .product .cell {
@@ -91,9 +92,17 @@
   padding: 0 15px;
 }
 
-@media (min-width: 1600px){
+footer {
+  padding-top: 20px;
+  width: 100%;
+  height: 60px;
+  background: #F5F5F5;
+  margin-top: 20px;
+}
+
+@media (min-width : 1600px) {
   .col-xlg-2 {
-  float: left;
-  width: 16.6667%;
+    float: left;
+    width: 16.6667%;
   }
 }
