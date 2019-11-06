@@ -92,6 +92,13 @@
   padding: 0 15px;
 }
 
+@media (min-width : 1600px) {
+  .col-xlg-2 {
+    float: left;
+    width: 16.6667%;
+  }
+}
+
 footer {
   padding-top: 20px;
   width: 100%;
@@ -100,9 +107,39 @@ footer {
   margin-top: 20px;
 }
 
-@media (min-width : 1600px) {
-  .col-xlg-2 {
-    float: left;
-    width: 16.6667%;
+.panel-success .panel-heading {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  background-image: -webkit-linear-gradient(top, #dff0d8 0%, #d0e9c6 100%);
+  background-image:      -o-linear-gradient(top, #dff0d8 0%, #d0e9c6 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#dff0d8), to(#d0e9c6));
+  background-image:         linear-gradient(to bottom, #dff0d8 0%, #d0e9c6 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdff0d8', endColorstr='#ffd0e9c6', GradientType=0);
+  background-repeat: repeat-x;
+}
+
+.more-options {
+  text-align: center;
+  margin-top: 10px
+}
+
+.more-options a {
+  cursor: pointer;
+}
+
+.xs-option-container {
+  margin: 10px 0;
+}
+
+.xs-option-container a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+@media (min-width: 767px){
+  #findProducts,
+  #productCatalog {
+    display: block;
   }
 }
