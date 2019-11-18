@@ -25,8 +25,11 @@
           </button>
           <a class="navbar-brand" href="products.html">E-shop</a>
         </div>
+        <a href="#" class="btn btn-primary navbar-btn navbar-right sign-in">
+          <i class="fa fa-facebook-official" aria-hidden="true"></i> Sign in
+        </a>
         <div class="collapse navbar-collapse" id="eshopNav">
-          <ul class="nav navbar-nav navbar-right">
+          <ul id="currentShoppingCart" class="nav navbar-nav navbar-right hidden">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                 aria-expanded="false">
@@ -39,9 +42,6 @@
               </div>
             </li>
           </ul>
-          <a href="#" class="btn btn-primary navbar-btn navbar-right sign-in">
-            <i class="fa fa-facebook-official" aria-hidden="true"></i> Sign in
-          </a>
         </div>
       </div>
     </nav>
@@ -461,7 +461,8 @@
                 </div>
               </div>
               <div class="modal-footer">
-                  <button id="addToCart" type="button" class="btn btn-primary">Add to Cart</button>
+                <img id="addToCartIndicator" src="static/img/loading.gif" class="hidden" alt="Loading...">
+                <button id="addToCart" type="button" class="btn btn-primary">Add to Cart</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
             </div>

@@ -156,7 +156,8 @@ footer {
 }
 
 .navbar-btn.navbar-right.sign-in {
-  margin-right: 10px;
+  margin-right: 5px;
+  margin-left: 10px;
 }
 
 #productCart table img {
