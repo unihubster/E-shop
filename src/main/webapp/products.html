@@ -36,8 +36,8 @@
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 Shopping cart (<span class="total-count">0</span>)<span class="caret"></span></a>
               <div class="dropdown-menu shopping-cart-desc">
-                <p>Total count: <span class="total-count">0</span></p>
-                <p>Total cost: <span class="total-cost">0</span></p>
+                <p>Total count: <span id="total-count" class="total-count">0</span></p>
+                <p>Total cost: <span id="total-cost" class="total-cost">0</span></p>
                 <a href="shopping-cart.html" class="btn btn-primary btn-block">View cart</a>
               </div>
             </li>
@@ -431,6 +431,7 @@
               </div>
             </div>
           <div class="text-center">
+            <img id="loadMoreIndicator" src="static/img/loading.gif" class="hidden" alt="Loading...">
             <a id="loadMore" class="btn btn-success">Load more products</a>
           </div>
         </div>
