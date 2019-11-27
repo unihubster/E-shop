@@ -18,6 +18,11 @@ body {
   position: relative;
 }
 
+.product:hover{
+  box-shadow: inset 0 0 2px rgba(168,203,235,.1), 0 0 1.5rem rgba(33,33,33,.4);
+  transition: 0.1s;
+}
+
 .product .price {
   position: absolute;
   left: -10px;

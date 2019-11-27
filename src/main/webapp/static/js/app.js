@@ -5,6 +5,7 @@
         $('#addProductPopup .count').change(calculateCost);
         $('#loadMore').click(loadMoreProducts);
         initSearchForm();
+        $('#goSearch').click(goSearch);
     };
 
     const showAddProductPopup = function () {
@@ -93,8 +94,8 @@
                     $('#allProducers').prop('checked', false);
                 });
          */
-        checkboxer('#allProducers', '.producers .search-option');
         checkboxer('#allCategories', '.categories .search-option');
+        checkboxer('#allProducers', '.producers .search-option');
     };
 
     function checkboxer(select_all, select_one) {
@@ -106,7 +107,7 @@
         //".checkbox" change 
         $(select_one).change(function () {
             //uncheck "select all", if one of the listed checkbox item is unchecked
-            if (false == $(this).prop('checked')) { //if this item is unchecked
+            if (!$(this).prop('checked')) { //if this item is unchecked
                 $(select_all).prop('checked', false); //change "select all" checked status to false
             }
             //check "select all" if all checkbox items are checked
@@ -114,6 +115,22 @@
                 $(select_all).prop('checked', true);
             }
         });
+    }
+
+    const goSearch = () => {
+        const notchecked = $('.search-option').filter(function () {
+            return !$(this).prop('checked');
+        });
+        const searchQuery = $('#search-query').val().trim();
+        $('#search-query').val(searchQuery); //put trimmed search query to search form for submit right query
+        if (notchecked.length < 1) {
+            $('#searchOptions input').prop('checked', false);
+            if(searchQuery.length < 1) {
+                alert('Please, put your search query');
+                return;
+            }
+        }
+        $('form.search').submit();
     }
 
     init();
