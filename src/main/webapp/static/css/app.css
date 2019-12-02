@@ -165,8 +165,15 @@ footer {
   margin-left: 10px;
 }
 
-#productCart table img {
+#shoppingCart table img {
   max-height: 80px;
   margin: 0 auto;
+  display: block;
+}
+
+.load-indicator {
+  background: url('../img/loading.gif') no-repeat center center;
+  height: 38px;
+  width: 38px;
   display: block;
 }

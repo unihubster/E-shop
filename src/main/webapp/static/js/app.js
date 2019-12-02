@@ -6,7 +6,10 @@
         $('#loadMore').click(loadMoreProducts);
         initSearchForm();
         $('#goSearch').click(goSearch);
+        $('.remove-product').click(removeProductFromCart);
     };
+
+
 
     const showAddProductPopup = function () {
         const idProduct = $(this).attr('data-id-product');
@@ -54,6 +57,7 @@
         }, 800);
     };
 
+    // TODO this is similar to refreshTotalCost()
     const calculateCost = () => {
         const priceStr = $('#addProductPopup .price').text();
         const moneySymbol = priceStr.match(/\D+/);
@@ -125,13 +129,87 @@
         $('#search-query').val(searchQuery); //put trimmed search query to search form for submit right query
         if (notchecked.length < 1) {
             $('#searchOptions input').prop('checked', false);
-            if(searchQuery.length < 1) {
+            if (searchQuery.length < 1) {
                 alert('Please, put your search query');
                 return;
             }
         }
         $('form.search').submit();
     }
+
+    const confirm = function (msg, okFunction) {
+        if (window.confirm(msg)) {
+            okFunction();
+        }
+    };
+
+    const removeProductFromCart = function () {
+        const btn = $(this);
+        confirm('Are you sure?', function () {
+            executeRemoveProduct(btn);
+        });
+    };
+
+    // TODO this is similar to calculateCost()
+    const refreshTotalCost = function() {
+        let cost = 0;
+        $('#shoppingCart .item').each(function (index, value) {
+            const priceStr = $(value).find('.price').text();
+            const moneySymbol = priceStr.match(/\D+/);
+            const price = parseFloat((priceStr).replace(moneySymbol, ''));
+            const count = parseInt($(value).find('.count').text());
+            cost += price * count;
+        });
+        const totalCostElem = $('#shoppingCart .total-cost');
+        const moneySymbol = totalCostElem.text().match(/\D+/);
+        totalCostElem.text(moneySymbol + cost.toFixed(2));
+    };
+
+    const executeRemoveProduct = function (btn) {
+        const idProduct = btn.attr('data-id-product');
+        const count = btn.attr('data-count');
+        btn.removeClass('btn-danger');
+        btn.removeClass('btn');
+        btn.addClass('load-indicator');
+        const text = btn.text();
+        btn.text('');
+        btn.off('click');
+
+        setTimeout(function () {
+            const data = {
+                totalCount: 1,
+                totalCost: 1
+            };
+            if (data.totalCount === 0) {
+                window.location.href = 'products.html';
+            } else {
+                const prevCount = parseInt($('#product' + idProduct + ' .count').text());
+                const remCount = parseInt(count);
+                if (remCount === prevCount) {
+                    $('#product' + idProduct).remove();
+
+                    // this is only for demo without server side
+                    if ($('#shoppingCart .item').length === 0) {
+                        window.location.href = 'products.html';
+                    }
+                    //
+                } else {
+                    btn.removeClass('load-indicator');
+                    btn.addClass('btn');
+                    btn.addClass('btn-danger');
+                    btn.text(text);
+                    btn.click(removeProductFromCart);
+                    $('#product' + idProduct + ' .count').text(prevCount - remCount);
+                    if (prevCount - remCount == 1) {
+                        $('#product' + idProduct + ' a.remove-product.all').remove();
+                    }
+                }
+                refreshTotalCost();
+            };
+        }, 800);
+    };
+
+
 
     init();
 
