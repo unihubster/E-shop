@@ -24,19 +24,6 @@
           <a class="navbar-brand" href="products.html">E-shop</a>
         </div>
         <div class="collapse navbar-collapse" id="eshopNav">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                aria-expanded="false">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                Shopping cart (<span class="total-count">0</span>)<span class="caret"></span></a>
-              <div class="dropdown-menu shopping-cart-desc">
-                <p>Total count: <span class="total-count">0</span></p>
-                <p>Total cost: <span class="total-cost">0</span></p>
-                <a href="shopping-cart.html" class="btn btn-primary btn-block">View cart</a>
-              </div>
-            </li>
-          </ul>
           <a href="#" class="btn btn-primary navbar-btn navbar-right sign-in">
             <i class="fa fa-facebook-official" aria-hidden="true"></i> Sign in
           </a>
@@ -138,7 +125,7 @@
       </aside>
       <main class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
         <div id="shoppingCart">
-          <div class="alert alert-warning" role="alert">
+          <div class="alert alert-warning hidden-print" role="alert">
             To make order, please sign in
           </div>
           <table class="table table-bordered">
@@ -147,7 +134,7 @@
                 <th>Products</th>
                 <th>Count</th>
                 <th>Price</th>
-                <th>Action</th>
+                <th class="hidden-print">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -157,7 +144,7 @@
                 </td>
                 <td class="count">1</td>
                 <td class="price">$ 570.00</td>
-                <td>
+                <td class="hidden-print">
                   <a class="btn btn-danger remove-product" data-id-product="278009" data-count="1">Remove one</a>
                 </td>
               </tr>
@@ -167,10 +154,10 @@
                 </td>
                 <td class="count">2</td>
                 <td class="price">$ 2710.00</td>
-                <td>
+                <td class="hidden-print">
                   <a class="btn btn-danger remove-product" data-id-product="2708014" data-count="1">Remove one</a><br />
                   <br />
-                  <a class="btn btn-danger remove-product all" data-id-product="2708014" data-count="2">Remove all</a>
+                  <a class="btn btn-danger remove-product all" data-id-product="2708014" data-count="2">Remove all pcs</a>
                 </td>
               </tr>
               <tr>
@@ -179,7 +166,7 @@
               </tr>
             </tbody>
           </table>
-          <div class="row">
+          <div class="row hidden-print">
             <div class="col-md-4 col-md-offset-4 col-lg-2 col-lg-offset-5">
               <a class="btn btn-primary btn-block"><i class="fa fa-facebook-official" aria-hidden="true"></i> Sign in</a>
             </div>
