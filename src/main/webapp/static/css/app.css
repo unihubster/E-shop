@@ -95,6 +95,10 @@ body {
   margin: 0;
 }
 
+.list-group-popup {
+  margin: 10px 0 0 0;
+}
+
 .col-xlg-2 {
   position: relative;
   min-height: 1px;
@@ -156,16 +160,16 @@ footer {
   padding: 15px;
 }
 
-.shopping-cart-desc btn {
+.shopping-cart-desc .btn {
   margin-top: 10px;
 }
 
-.navbar-btn.navbar-right.sign-in {
+.navbar-right.sign-in {
   margin-right: 5px;
   margin-left: 10px;
 }
 
-#shoppingCart table img {
+.thumbnail-small {
   max-height: 80px;
   margin: 0 auto;
   display: block;

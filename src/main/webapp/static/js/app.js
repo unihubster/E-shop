@@ -2,7 +2,7 @@
     const init = () => {
         initBuyBtn();
         $('#addToCart').click(addProductToCart);
-        $('#addProductPopup .count').change(calculateCost);
+        $('#addProductPopup .count').change(calculateCostOnAddToShopCar);
         $('#loadMore').click(loadMoreProducts);
         initSearchForm();
         $('#goSearch').click(goSearch);
@@ -57,8 +57,8 @@
         }, 800);
     };
 
-    // TODO this is similar to refreshTotalCost()
-    const calculateCost = () => {
+    // TODO this is similar to refreshTotalCostOnShopCart()
+    const calculateCostOnAddToShopCar = () => {
         const priceStr = $('#addProductPopup .price').text();
         const moneySymbol = priceStr.match(/\D+/);
         const price = parseFloat(priceStr.replace(moneySymbol, ''))
@@ -84,7 +84,7 @@
     };
 
     const initSearchForm = () => {
-        /*  // original code whithout select all when all checkboxes are selected
+        /*  // original code whithout select "all" when all checkboxes are selected
                 $('#allCategories').click(function () {
                     $('.categories .search-option').prop('checked', $(this).is(':checked'));
                 });
@@ -150,8 +150,8 @@
         });
     };
 
-    // TODO this is similar to calculateCost()
-    const refreshTotalCost = function() {
+    // TODO this is similar to calculateCostOnAddToShopCar()
+    const refreshTotalCostOnShopCart = function() {
         let cost = 0;
         $('#shoppingCart .item').each(function (index, value) {
             const priceStr = $(value).find('.price').text();
@@ -204,7 +204,7 @@
                         $('#product' + idProduct + ' a.remove-product.all').remove();
                     }
                 }
-                refreshTotalCost();
+                refreshTotalCostOnShopCart();
             };
         }, 800);
     };
