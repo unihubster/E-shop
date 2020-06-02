@@ -11,5 +11,9 @@ Following technologies are used:
 - JavaScript
 - JQuery
 
-Demo of main page https://unihubster.github.io/E-shop/src/main/webapp/products.html
-Demo of shopping cart page https://unihubster.github.io/E-shop/src/main/webapp/shopping-cart.html
+Structure is to continue to develop like JavaEE application.
+
+## Demos
+Main page https://unihubster.github.io/E-shop/src/main/webapp/products.html
+
+Shopping cart page https://unihubster.github.io/E-shop/src/main/webapp/shopping-cart.html
